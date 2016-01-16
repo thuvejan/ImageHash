@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="application-name" content="ImageHash">
 <meta name="description" content="A web app allowing users to host image files, involving no servers for hosting.">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
 <title>ImageHash</title>
 </head>
 <body>
@@ -12,14 +13,24 @@
 <h2>Share your images without hosting it on any servers</h2>
 </header>
 <main>
+<div id="drag-drop-img">
+<canvas id="img-view">
+</canvas>
+<input type="file" id="user-img" accept="image/*">
+</div>
+<br>
 <button type="button">Hash!</button>
 </main>
 <footer>
 <ul>
 <li>
 <a href="">About</a>
+</li>
+<li>
 <a href="">Github</a>
+</li>
 </ul>
 </footer>
+<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
