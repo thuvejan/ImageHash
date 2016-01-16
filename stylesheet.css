@@ -1,0 +1,45 @@
+body {
+background-color: #EAEFF2;
+font-family: "Droid Sans", Arial, sans-serif;
+}
+
+header * {
+text-align: center;
+}
+
+button {
+border-radius: 5px;
+padding: 10px 10px 10px 10px;
+}
+
+a {
+text-decoration: none;
+}
+
+footer {
+}
+
+#drag-drop-img {
+border: 5px dashed #424F5A;
+border-radius: 5px;
+margin: auto;
+width: 80%;
+}
+
+#drag-drop-img p {
+text-align: center;
+vertical-align: middle;
+}
+
+#input-img {
+display: none;
+}
+
+.more-info {
+list-style: none;
+}
+
+.more-info li {
+display: inline;
+margin-right: 10px;
+}
