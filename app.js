@@ -6,14 +6,32 @@ function hashImage() {
     fr.addEventListener("load", function() {
         var img = new Image();
         img.src = fr.result;
+        setHash(fr.result);
         alert(img.src);
         var context = canvas.getContext("2d");
         context.drawImage(img, 0, 0);
     }, false);
 
-if (imgFile) {
-    fr.readAsDataURL(imgFile);
+    if (imgFile) {
+        fr.readAsDataURL(imgFile);
     }
+}
+
+function setHash(hash) {
+    hash = hash.substring(5);
+    window.location.replace(window.location.origin + window.location.pathname + "#" + hash);
+}
+
+function readHash() {
+    // get hash
+    var hash = "data:" + this.location.hash;
+    var context = canvas.getContext("2d");
+
+    var img = new Image();
+    img.src = hash;
+
+    context.drawImage(img, 0, 0);
+
 }
 
 var fileInput = document.getElementById("input-img");
@@ -30,3 +48,8 @@ imgUploadLink.addEventListener("click", function(event) {
     fileInput.click();
 }, false);
 
+window.addEventListener("load", function() {
+    if (window.location.hash) {
+        readHash();
+    }
+}, false);
