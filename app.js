@@ -1,18 +1,32 @@
-function hashImage() {}
+function hashImage() {
+    console.log("h");
+    var fr = new FileReader();
+    var imgFile = this.files[0];
+
+    fr.addEventListener("load", function() {
+        var img = new Image();
+        img.src = fr.result;
+        alert(img.src);
+        var context = canvas.getContext("2d");
+        context.drawImage(img, 0, 0);
+    }, false);
+
+if (imgFile) {
+    fr.readAsDataURL(imgFile);
+    }
+}
 
 var fileInput = document.getElementById("input-img");
 var imgUploadLink = document.getElementById("img-click-upload");
 var hashButton = document.getElementById("hash-btn");
-var canvas = document.getElementById("img-canvas");
+var canvas = document.getElementById("img-view");
 
-imgUploadLink.addEventListener("click", function() {fileInput.click()}, false);
+fileInput.addEventListener("change", hashImage, false);
+hashButton.addEventListener("click", hashImage, false);
 
-fileInput.addEventListener("change", function() {
-var imgFile = fileInput.files[0];
-var img = new Image();
-img.src = new FileReader().readAsDataUrl(fileInput.files[0]);
-
-canvas.drawImage(img);
+imgUploadLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log(hashImage);
+    fileInput.click();
 }, false);
 
-hashButton.addEventListener("click", hashImage, false);
