@@ -3,7 +3,17 @@ function hashImage() {
     var imgFile = this.files[0];
 
     fr.addEventListener("load", function() {
+        // set src and alt attribute for image
         img.setAttribute("src", fr.result);
+	img.setAttribute("alt", imgFile.name);
+    
+    // change image width and height to original
+    img.addEventListener("load", function() {
+        img.setAttribute("width", img.naturalWidth);
+        img.setAttribute("height", img.naturalHeight);
+    }, false);
+
+	// set the URL hash
         setHash(fr.result);
     }, false);
 
@@ -22,9 +32,6 @@ function readHash() {
     var hash = "data:" + this.location.hash.substring[0];
 
     img.setAttribute("src", hash);
-
-    context.drawImage(img, 0, 0);
-
 }
 
 var fileInput = document.getElementById("input-img");
