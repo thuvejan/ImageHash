@@ -5,6 +5,7 @@ ImageHash is a client side web application that allows users to upload an image 
 
 To do
 ---
+- [ ] Implement drag-and-drop functionality
 - [ ] Ensure images larger than page itself do not render to original resolution
 - [ ] Fix reading from URL hash
 - [ ] Add offline caching support
