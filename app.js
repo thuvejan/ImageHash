@@ -49,7 +49,6 @@ function readHash() {
 
 var fileInput = document.getElementById("input-img");
 var imgUploadLink = document.getElementById("img-click-upload");
-var hashButton = document.getElementById("hash-btn");
 var img = document.getElementById("img-view");
 
 fileInput.addEventListener("change", hashImage, false);
