@@ -9,8 +9,21 @@ function hashImage() {
     
     // change image width and height to original
     img.addEventListener("load", function() {
-        img.setAttribute("width", img.naturalWidth);
-        img.setAttribute("height", img.naturalHeight);
+    var x = img.naturalWidth;
+    var y = img.naturalHeight;
+    
+    var imgRatio = x/y;
+    // resize imgs if they are larger than screen
+        if (x >= window.innerWidth) {
+        x = (.85 * window.innerWidth);
+        y = x / imgRatio; // keep img aspect ratio
+        }
+        if (y >= window.innerHeight) {
+        y = (.85 * window.innerWidth);
+        x = y * imgRatio; // maintain img aspect ratio
+        }
+        img.setAttribute("width", x);
+        img.setAttribute("height", y);
     }, false);
 
 	// set the URL hash
@@ -24,7 +37,7 @@ function hashImage() {
 
 function setHash(hash) {
     hash = hash.substring(5);
-    window.location.replace(window.location.origin + window.location.pathname + "#" + hash);
+    //window.location.replace(window.location.origin + window.location.pathname + "#" + hash);
 }
 
 function readHash() {
@@ -40,7 +53,6 @@ var hashButton = document.getElementById("hash-btn");
 var img = document.getElementById("img-view");
 
 fileInput.addEventListener("change", hashImage, false);
-hashButton.addEventListener("click", hashImage, false);
 
 imgUploadLink.addEventListener("click", function(event) {
     event.preventDefault();
