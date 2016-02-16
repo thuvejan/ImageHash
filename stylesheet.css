@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Droid Sans";
+    src: url(assets/typeface/DroidSans.ttf);
+}
 body {
     background-color: #EAEFF2;
     font-family: "Droid Sans", Arial, sans-serif;
