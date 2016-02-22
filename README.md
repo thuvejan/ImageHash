@@ -7,6 +7,6 @@ To do
 ---
 - [ ] Implement drag-and-drop functionality
 - [x] Ensure images larger than page itself do not render to original resolution
-- [x] Fix reading from URL hash
+- [x] Fix reading from URL hash (Works on Chrome, not Firefox)
 - [ ] Add offline caching support
 - [ ] Make page fill the screen lengthwise
